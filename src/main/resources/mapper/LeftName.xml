@@ -1,0 +1,11 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xc.takeaway.reponsitory.LeftNameReponsitory">
+    <select id="leftNames" parameterType="com.xc.takeaway.utils.leftName" resultType="com.xc.takeaway.utils.leftName">
+        select * from t_sys_shop_leftname  where shop_num =#{shop_num}
+    </select>
+
+    <insert id="insertName" parameterType="com.xc.takeaway.utils.leftName">
+        insert into t_sys_shop_leftname values(#{id},#{name},#{shop_num})
+    </insert>
+</mapper>

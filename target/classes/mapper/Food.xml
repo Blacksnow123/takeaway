@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xc.takeaway.reponsitory.FoodReponsitory">
+    <select id="shopList" resultType="com.xc.takeaway.utils.Shop">
+        select  a.* from t_sys_shopinfo a LEFT join t_sys_user b on a.shop_num =b.shop_num group by a.id
+    </select>
+
+    <select id="foodList" parameterType="com.xc.takeaway.utils.Food" resultType="com.xc.takeaway.utils.Food">
+        select * from t_sys_shop where shop_num=#{shop_num} and left_name_id=#{left_name_id}
+    </select>
+
+    <select id="leftName" parameterType="com.xc.takeaway.utils.leftName" resultType="com.xc.takeaway.utils.leftName">
+        select * from t_sys_shop_leftname where shop_num=#{shop_num}
+    </select>
+
+    <select id="foodComment" parameterType="com.xc.takeaway.utils.foodComment" resultType="com.xc.takeaway.utils.foodComment">
+        select * from t_sys_food_comment where food_id=#{food_id}
+    </select>
+
+    <select id="shopComment" parameterType="com.xc.takeaway.utils.shopComment" resultType="com.xc.takeaway.utils.shopComment">
+        select * from t_sys_shop_comment where shop_num=#{shop_num}
+    </select>
+
+    <select id="shopInfo" parameterType="com.xc.takeaway.utils.Shop" resultType="com.xc.takeaway.utils.Shop">
+        select * from t_sys_shopinfo where shop_num=#{shop_num}
+    </select>
+
+    <select id="allFoods"  resultType="com.xc.takeaway.utils.Food">
+    SELECT
+        a.*,
+        b.shop_name,
+        b.shop_place,
+        b.taste_score,
+        c.`name` as left_name
+    FROM
+	t_sys_shop a
+	LEFT JOIN t_sys_shopinfo b ON a.shop_num = b.shop_num
+	LEFT JOIN t_sys_shop_leftname c ON a.left_name_id = c.id where a.delete_flag=0 GROUP BY food_id
+    </select>
+
+    <select id="shopFoodlist"  parameterType="com.xc.takeaway.utils.Food" resultType="com.xc.takeaway.utils.Food">
+    SELECT
+        a.*,
+        b.shop_name,
+        b.shop_place,
+        b.taste_score,
+        c.`name` as left_name
+    FROM
+	t_sys_shop a
+	LEFT JOIN t_sys_shopinfo b ON a.shop_num = b.shop_num
+	LEFT JOIN t_sys_shop_leftname c ON a.left_name_id = c.id where a.shop_num=#{shop_num} and a.delete_flag !=1 GROUP BY food_id
+    </select>
+
+
+    <update id="updateFood" parameterType="com.xc.takeaway.utils.Food">
+        update t_sys_shop set
+        food_name=#{food_name} ,
+        food_price=#{food_price},
+        left_name_id=#{left_name_id},
+        food_img=#{food_img}
+        where food_id=#{food_id}
+    </update>
+
+    <update id="deleteFood" parameterType="com.xc.takeaway.utils.Food" >
+        update t_sys_shop set delete_flag=#{delete_flag} where food_id=#{food_id}
+    </update>
+
+    <insert id="insertFood" parameterType="com.xc.takeaway.utils.Food">
+        insert into t_sys_shop values(#{food_id},
+        #{food_name},
+        #{food_img},
+        #{sell_count},
+        #{shop_num},
+        #{food_price},
+        #{food_extra},
+        #{left_name_id},
+        0)
+    </insert>
+
+    <select id="shopFilter" resultType="com.xc.takeaway.utils.Shop">
+        select  a.* from t_sys_shopinfo a LEFT join t_sys_user b on a.shop_num =b.shop_num  where a.shop_name like concat(concat('%',#{shop_name},'%')) group by a.id
+    </select>
+
+    <update id="shopFooddelete" parameterType="com.xc.takeaway.utils.Food" >
+        update t_sys_shop set delete_flag=1 where shop_num=#{shop_num}
+    </update>
+</mapper>

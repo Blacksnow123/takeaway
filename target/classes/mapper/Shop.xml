@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xc.takeaway.reponsitory.ShopReponsitory">
+    <select id="shoplist" parameterType="com.xc.takeaway.utils.Shop" resultType="com.xc.takeaway.utils.Shop">
+        SELECT * FROM t_sys_shopinfo WHERE shop_type=#{shop_type}
+    </select>
+
+    <select id="oneShop" parameterType="com.xc.takeaway.utils.Shop" resultType="com.xc.takeaway.utils.Shop">
+        SELECT * FROM t_sys_shopinfo WHERE shop_num=#{shop_num}
+    </select>
+
+    <update id="updateShop" parameterType="com.xc.takeaway.utils.Shop" >
+        update  t_sys_shopinfo set shop_name=#{shop_name}  ,shop_place=#{shop_place} ,shop_type=#{shop_type} ,shop_img=#{shop_img} where id=#{id}
+    </update>
+
+    <update id="updateScore" parameterType="com.xc.takeaway.utils.Shop" >
+        update  t_sys_shopinfo
+        set pack_score=#{pack_score} ,
+        taste_score=#{taste_score} ,
+        send_score=#{send_score},
+        shop_score=#{shop_score}
+        where id=#{id}
+    </update>
+
+    <update id="deleteShop" parameterType="com.xc.takeaway.utils.Shop" >
+        update  t_sys_shopinfo set delete_flag=1 where id=#{id}
+    </update>
+
+    <insert id="insertShop" parameterType="com.xc.takeaway.utils.Shop" >
+        insert into t_sys_shopinfo values(#{id},#{shop_score},#{taste_score},#{pack_score},#{shop_img},#{send_time},
+        #{distance},#{sell_start},#{distribution_price},#{average},#{shop_num},#{send_score},#{shop_name},#{shop_type},
+        #{shop_place},#{send_service},0,0)
+    </insert>
+
+    <insert id="insertSelfshop" parameterType="com.xc.takeaway.utils.Shop" >
+        insert into t_sys_shopinfo values(#{id},5.0,5.0,5.0,#{shop_img},#{send_time},
+        #{distance},#{sell_start},#{distribution_price},0,#{shop_num},5.0,#{shop_name},#{shop_type},
+        #{shop_place},#{send_service},0,0)
+    </insert>
+
+    <update id="shopCount" parameterType="com.xc.takeaway.utils.Shop" >
+        update  t_sys_shopinfo
+        set sell_count=#{sell_count},average=#{average}
+        where shop_num=#{shop_num}
+    </update>
+
+    <select id="shopTypelist" parameterType="com.xc.takeaway.utils.Shop" resultType="com.xc.takeaway.utils.Shop">
+        SELECT * FROM t_sys_shopinfo WHERE shop_type=#{shop_type} order by shop_score DESC
+    </select>
+
+    <select id="byAverage" parameterType="com.xc.takeaway.utils.Shop" resultType="com.xc.takeaway.utils.Shop">
+        SELECT * FROM t_sys_shopinfo WHERE shop_type=#{shop_type} order by average ASC
+    </select>
+
+    <select id="byDistance" parameterType="com.xc.takeaway.utils.Shop" resultType="com.xc.takeaway.utils.Shop">
+        SELECT * FROM t_sys_shopinfo WHERE shop_type=#{shop_type} order by (distance+0) ASC
+    </select>
+</mapper>

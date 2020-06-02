@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xc.takeaway.reponsitory.OrderReponsitory">
+    <insert id="insertOrder" parameterType="com.xc.takeaway.utils.Order" >
+        insert t_sys_order(order_id,shop_num,order_time,total_price,pay_state,food_info,extra_info,location,user_name,confirm_state,shop_img,accept_state) values (#{order_id},#{shop_num},#{order_time},#{total_price},#{pay_state},#{food_info},#{extra_info},#{location},#{user_name},1,#{shop_img},0)
+    </insert>
+
+    <select id="selectObject"  resultType="com.xc.takeaway.utils.Order">
+        select a.shop_name,b.* from t_sys_shopinfo a left join t_sys_order b on a.shop_num=b.shop_num where user_name=#{user_name} group by order_id
+    </select>
+
+    <select id="selectOrders"  resultType="com.xc.takeaway.utils.Order">
+        select * from t_sys_order a left join t_sys_shopinfo b on a.shop_num=b.shop_num group by a.order_id
+    </select>
+
+    <select id="shoperOrders"  parameterType="com.xc.takeaway.utils.Order" resultType="com.xc.takeaway.utils.Order">
+        select * from t_sys_order a left join t_sys_shopinfo b on a.shop_num=b.shop_num where a.shop_num=#{shop_num} group by a.order_id
+    </select>
+
+    <update id="updateOrder" parameterType="com.xc.takeaway.utils.Order">
+        update t_sys_order set confirm_state =#{confirm_state} where order_id=#{order_id}
+    </update>
+
+    <update id="acceptOrder" parameterType="com.xc.takeaway.utils.Order">
+        update t_sys_order set accept_state =#{accept_state} where order_id=#{order_id}
+    </update>
+</mapper>

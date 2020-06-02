@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xc.takeaway.reponsitory.UserReponsitory">
+
+    <resultMap id="myUser" type="java.util.HashMap">
+        <result column="id" property="id"/>
+        <result column="user_name" property="user_name"/>
+        <result column="delete_flag" property="delete_flag"/>
+        <result column="role_flag" property="role_flag"/>
+        <result column="email" property="email"/>
+        <result column="shop_num" property="shop_num"/>
+    </resultMap>
+
+    <select id="userCheck" parameterType="com.xc.takeaway.utils.User" resultType="java.lang.Integer">
+        SELECT Count(*) FROM t_sys_user WHERE user_name = #{user_name} and user_password=#{user_password} and role_flag=1
+    </select>
+
+
+    <select id="userCount"  resultType="java.lang.Integer">
+        SELECT Count(*) FROM t_sys_user WHERE  role_flag=1
+    </select>
+
+    <select id="adminCount"  resultType="java.lang.Integer">
+        SELECT Count(*) FROM t_sys_user WHERE  role_flag=2 or role_flag=3
+    </select>
+
+    <select id="adminCheck" parameterType="com.xc.takeaway.utils.User" resultType="com.xc.takeaway.utils.User">
+        SELECT * FROM t_sys_user WHERE user_name = #{user_name} and user_password=#{user_password} and (role_flag=3  or role_flag=2)
+    </select>
+
+    <select id="allUsers" parameterType="com.xc.takeaway.utils.User" resultType="com.xc.takeaway.utils.User">
+        SELECT * FROM t_sys_user WHERE  role_flag=#{role_flag}
+    </select>
+
+    <select id="allshops" parameterType="com.xc.takeaway.utils.User" resultType="com.xc.takeaway.utils.Shop">
+       SELECT
+	    b.*,
+	    c.type_name
+        FROM
+	    t_sys_user a
+	    LEFT JOIN t_sys_shopinfo b ON a.shop_num = b.shop_num
+	    LEFT JOIN t_sys_type c ON b.shop_type = c.id
+	    where a.role_flag=#{role_flag}  and b.delete_flag !=1
+    </select>
+
+<!--    <select id="allshops" parameterType="com.xc.takeaway.utils.User" resultType="com.xc.takeaway.utils.Shop">-->
+<!--       SELECT-->
+<!--	    b.*,-->
+<!--	    c.type_name-->
+<!--        FROM-->
+<!--	    t_sys_user a-->
+<!--	    LEFT JOIN t_sys_shopinfo b ON a.shop_num = b.shop_num-->
+<!--	    LEFT JOIN t_sys_type c ON b.shop_type = c.id-->
+<!--	    where a.role_flag=#{role_flag}-->
+<!--    </select>-->
+
+
+    <insert id="userRegister" parameterType="com.xc.takeaway.utils.User" >
+        insert t_sys_user (id,user_name,user_password,email,role_flag) values (#{id},#{user_name},#{user_password},#{email},1)
+    </insert>
+
+    <insert id="shoperRegister" parameterType="com.xc.takeaway.utils.User" >
+        insert t_sys_user (id,user_name,user_password,email,role_flag) values (#{id},#{user_name},#{user_password},#{email},2)
+    </insert>
+
+    <update id="updateSelfshop" parameterType="com.xc.takeaway.utils.User">
+        update t_sys_user set
+        shop_num=#{shop_num}
+        where id=#{id}
+    </update>
+
+    <update id="reset" parameterType="com.xc.takeaway.utils.User">
+        update t_sys_user set
+        user_password=#{user_password}
+        where user_name=#{user_name}
+        and   email=#{email}
+    </update>
+
+
+</mapper>

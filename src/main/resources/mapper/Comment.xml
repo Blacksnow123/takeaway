@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xc.takeaway.reponsitory.CommentReponsitory">
+    <insert id="insertComment" parameterType="com.xc.takeaway.utils.shopComment">
+        insert into t_sys_shop_comment values (
+        #{id},
+        #{shop_num},
+        #{user_name},
+        #{comment_time},
+        #{content},
+        #{title},
+        #{pack_score},
+        #{taste_score},
+        #{shop_score},
+        #{send_score}
+        )
+    </insert>
+</mapper>

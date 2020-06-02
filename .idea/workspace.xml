@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="65a6f459-adb4-4221-949f-90c871f174c1" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WJuTPypEPEFBvwDuW7Rt7aBpG1" />
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="E:/copy/ejile" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.xc.takeaway" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\graduation\spring\src\main\java\com\xc\takeaway" />
+      <recent name="E:\graduation\spring\src\main\java\com\xc\takeaway\controller" />
+      <recent name="E:\graduation\spring\src\main\java\com\xc\takeaway\utils" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="TakeawayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xc.takeaway.TakeawayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65a6f459-adb4-4221-949f-90c871f174c1" name="Default Changelist" comment="" />
+      <created>1578880025394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578880025394</updated>
+      <workItem from="1578880026773" duration="4606000" />
+      <workItem from="1578885718525" duration="12213000" />
+      <workItem from="1586697948140" duration="141000" />
+      <workItem from="1586698156937" duration="5545000" />
+      <workItem from="1586751848579" duration="11016000" />
+      <workItem from="1586784220075" duration="22000" />
+      <workItem from="1586834084179" duration="5523000" />
+      <workItem from="1587017652525" duration="2491000" />
+      <workItem from="1587110612906" duration="4036000" />
+      <workItem from="1587197947159" duration="633000" />
+      <workItem from="1587210717406" duration="3212000" />
+      <workItem from="1587294275585" duration="1084000" />
+      <workItem from="1587350771477" duration="5512000" />
+      <workItem from="1587443378572" duration="3748000" />
+      <workItem from="1587479860801" duration="1645000" />
+      <workItem from="1587528595227" duration="12834000" />
+      <workItem from="1587615955426" duration="6186000" />
+      <workItem from="1587706126901" duration="2488000" />
+      <workItem from="1587779507751" duration="4225000" />
+      <workItem from="1587857926060" duration="3334000" />
+      <workItem from="1587912820451" duration="606000" />
+      <workItem from="1587964284003" duration="1980000" />
+      <workItem from="1588173664595" duration="1282000" />
+      <workItem from="1588220665672" duration="1411000" />
+      <workItem from="1588302000201" duration="617000" />
+      <workItem from="1588402308758" duration="864000" />
+      <workItem from="1588471393632" duration="1912000" />
+      <workItem from="1588567775936" duration="19622000" />
+      <workItem from="1588648620591" duration="6774000" />
+      <workItem from="1588751425078" duration="12251000" />
+      <workItem from="1588819954479" duration="19236000" />
+      <workItem from="1588900682987" duration="3218000" />
+      <workItem from="1588998557911" duration="12716000" />
+      <workItem from="1589086070295" duration="4549000" />
+      <workItem from="1589168712585" duration="561000" />
+      <workItem from="1589170443151" duration="613000" />
+      <workItem from="1589185908423" duration="7515000" />
+      <workItem from="1589345837680" duration="1136000" />
+      <workItem from="1589370501028" duration="613000" />
+      <workItem from="1589467936370" duration="6479000" />
+      <workItem from="1589549525848" duration="674000" />
+      <workItem from="1589592739978" duration="4258000" />
+      <workItem from="1589636752647" duration="5679000" />
+      <workItem from="1589704603911" duration="1200000" />
+      <workItem from="1589730424901" duration="4270000" />
+      <workItem from="1589766062527" duration="11514000" />
+      <workItem from="1589807575249" duration="742000" />
+      <workItem from="1589872364415" duration="2566000" />
+      <workItem from="1589957876173" duration="1275000" />
+      <workItem from="1590042636531" duration="8746000" />
+      <workItem from="1590134019577" duration="1200000" />
+      <workItem from="1590151085406" duration="2490000" />
+      <workItem from="1590298699767" duration="868000" />
+      <workItem from="1590324910430" duration="637000" />
+      <workItem from="1590545937536" duration="2003000" />
+      <workItem from="1590913536009" duration="5287000" />
+      <workItem from="1590976054973" duration="8611000" />
+      <workItem from="1591058414398" duration="4044000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
